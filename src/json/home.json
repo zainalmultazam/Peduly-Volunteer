@@ -1,0 +1,92 @@
+{
+  "kategori": [
+    {
+      "id": 1,
+      "title": "Pendidikan",
+      "imgUrl": "/icon/home/pendidikan.svg",
+      "object": "pendidikan"
+    },
+    {
+      "id": 2,
+      "title": "Kemanusiaan",
+      "imgUrl": "/icon/home/kemanusiaan.svg",
+      "object": "kemanusiaan"
+    },
+    {
+      "id": 3,
+      "title": "Lingkungan",
+      "imgUrl": "/icon/home/lingkungan.svg",
+      "object": "lingkungan"
+    },
+    {
+      "id": 4,
+      "title": "Kesehatan",
+      "imgUrl": "/icon/home/pendidikan.svg",
+      "object": "kesehatan"
+    }
+  ],
+  "katamereka": [
+    {
+      "id": 1,
+      "nama": "Brook Lopes",
+      "job": "Volunteer Peduly",
+      "pesan": "“Saya sangat puas dengan semua program yang saya kerjakan di peduly. saya bangga memiliki kesempatan menjadi volunteer disini.”"
+    },
+    {
+      "id": 2,
+      "nama": "Brook Lopes",
+      "job": "Volunteer Peduly",
+      "pesan": "“Saya sangat puas dengan semua program yang saya kerjakan di peduly. saya bangga memiliki kesempatan menjadi volunteer disini.”"
+    },
+    {
+      "id": 3,
+      "nama": "Brook Lopes",
+      "job": "Volunteer Peduly",
+      "pesan": "“Saya sangat puas dengan semua program yang saya kerjakan di peduly. saya bangga memiliki kesempatan menjadi volunteer disini.”"
+    }
+  ],
+  "anggota": [
+    {
+      "id": 1,
+      "nama": "Inayah Arisanti",
+      "kota": "Malang",
+      "img": "https://s3-alpha-sig.figma.com/img/e34d/4e5f/89ea6b2b6a09446b8d8ef72db1bc7766?Expires=1657497600&Signature=UCuD9PLF9x2bsntaQJob6NzVNGcXKYZsVAHLxkdNedJLytcBywQJgyNRjguXlMTaJVNXHyJqV~mRqYSUJflYKNrCwSniIe3-jwGiGzlAIzHghFSrPeg7auwuIjpFabbPYdDy738MiuATU6A1Bez-q75UgsIH2mQirfEKnu8w4aBg9SkBBrG~eSn9Tq43OlunqhcY0zOKYwC~WSI~CgXApVooqXRAnslLrX-oRhzXdbzDI-ImVgD9CaWCAFZiGj070fFlGxEmVXyOExRTuHTBRyCFGCLHgGyw1KNuZyBS~OaibMbhrUqMseN9nYAp4tMgQSLLtAKLX0xzpe2KjQAuTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+    },
+    {
+      "id": 2,
+      "nama": "Akmal Indrawan",
+      "kota": "Surabaya",
+      "img": "https://s3-alpha-sig.figma.com/img/e279/5b98/b119e8aa58929944d9b52f0338784547?Expires=1657497600&Signature=BZxdChoym8UbIs9AER6GWRD-jTJKMsnyaoZObdBZ7izaOBnENIwwvLRVGsSsk0Vl0R6H4-dPsjW9eGycWY1-UtNK5QG5aZLWvVANHhrQo~fwS7VgKGjZAs3s9wbEqNoxgnkz2bnmVHvHRpUoTRR0S7YAhB-eR9XVxiKOyvAX0sWZTMgo~-vizPPGsowyupzWvZo6dLRWdk3SFmqwEKRCEEiMtAsWaucs94taLyjPr8ZVoIVQiH-tIrTuGEFGEFxcbCKyYZJE63Vx1ALl315ye-npbyyumzME4WxyA5JBkQnhQk1~iQ1qOnAOlbwjy4TDOGU4YPz0dPkhKEZzwGSIxg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+    },
+    {
+      "id": 3,
+      "nama": "Fatiya Himalaya",
+      "kota": "jakarta",
+      "img": "https://s3-alpha-sig.figma.com/img/51df/21ec/7fb59ffd18d6a19f9997bb47041b6bc7?Expires=1657497600&Signature=BvSzkfH~431~OvFq~FmenQCZGy-hj7R2CzjGkgBFhwhYRiBKdcH~DnnAOKWZCKkS5UduD1WB73bFlh3Glc~OUWQ9p5gTvNAY58q-wgnR-HSlDEGKe97sIjpeuNW51vwGax6Y0aOI6OF93q6UQchrtjndCZn3Ibl-MDF0HVa6zcYK91J94RzEiSY7-sKpRVTcwoD-JWdkYsTxwGAOPPYzAkeaqt4bDbWgUZXDFRXaavL8FfY1a56vsHNKT8UHTgk~JezKV1E9WukR1OVulQgJG0ewtWii-MMKes9lwOY~jLZXBqZCjMQ~u63I8Zg9oKNnG7GAC-rPS46kAeTjn0sBOw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+    },
+    {
+      "id": 4,
+      "nama": "Endah Susilowati",
+      "kota": "jakarta",
+      "img": "https://s3-alpha-sig.figma.com/img/7ff4/2029/d981aa806a095424d54c10ba9b7a683f?Expires=1657497600&Signature=QjMwnO6IpfuHHQiEQYojRC~wDnM7STr7X4oQD6g0ncs4m3Kl4vLZvGnszMpTxx7nkdVKPid6XAvXY~c3pQjMjPPs-ZGbryCnidGE~zSvrRPs1PGqlPi0etFLr~~5CHZfKQMFkQEH~cQWP3PORuxtbcJBbPqefzO1Y7L6XgMoRgUj~oze2RfI0k1WtGiiy2Zf-Tz4OqWR9mLQFSeYIigEXgmdI~UrzvhlzzL~N1ALaiN1U60qXRqlN4y~Xl9zNrrUYMtH0LR0m1P2bS6uQlytnmNN3oob4MtRYm4WsBZuQwv363h8tDkefeiLgE0AV1FiMOZzUX3iyXg89VIV5Rg7Yw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+    },
+    {
+      "id": 5,
+      "nama": "Intan Cahya Ningrum",
+      "kota": "Bogor",
+      "img": "https://s3-alpha-sig.figma.com/img/1fd6/e5e6/9b80f30d8528b5618d82f4695924db9e?Expires=1657497600&Signature=H0TEN1qbaXmyLnWMgoj-dr5OHVS4ErskBwx1~9xDtPYOs3c~B9YftU2dPbKQ5H3Is1yPLgjPUniYcVRqYel5sTtjDOPMcsDcyj0z~E2eyjN~DNMLngKQY767FTyRJ7sEvwkaXfxNfHbIXBmSzeYwu~VJlMIUq4E1vwsYDLMQ~uZ84bIe-9OJ2lw-pppmCl42btF1~4sJM7SEc5BCIwc5LYk6V-H9ValLtDRxDsHQf8XAjf2eEEQ3RuqV~rypv-~3OEIVwEiljuZgXPQKLbqN2lhAT5Rk~cxej-9yWr8Ajtb9rfWSVqKb6dWcYEdRJdn387eYvykJkYaQSdhoLrJg2Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+    },
+    {
+      "id": 6,
+      "nama": "Muhammad Hanafi",
+      "kota": "Surabaya",
+      "img": "https://s3-alpha-sig.figma.com/img/e279/5b98/b119e8aa58929944d9b52f0338784547?Expires=1657497600&Signature=BZxdChoym8UbIs9AER6GWRD-jTJKMsnyaoZObdBZ7izaOBnENIwwvLRVGsSsk0Vl0R6H4-dPsjW9eGycWY1-UtNK5QG5aZLWvVANHhrQo~fwS7VgKGjZAs3s9wbEqNoxgnkz2bnmVHvHRpUoTRR0S7YAhB-eR9XVxiKOyvAX0sWZTMgo~-vizPPGsowyupzWvZo6dLRWdk3SFmqwEKRCEEiMtAsWaucs94taLyjPr8ZVoIVQiH-tIrTuGEFGEFxcbCKyYZJE63Vx1ALl315ye-npbyyumzME4WxyA5JBkQnhQk1~iQ1qOnAOlbwjy4TDOGU4YPz0dPkhKEZzwGSIxg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+    },
+    {
+      "id": 7,
+      "nama": "Evelyn Velicia",
+      "kota": "Malang",
+      "img": "https://s3-alpha-sig.figma.com/img/e34d/4e5f/89ea6b2b6a09446b8d8ef72db1bc7766?Expires=1657497600&Signature=UCuD9PLF9x2bsntaQJob6NzVNGcXKYZsVAHLxkdNedJLytcBywQJgyNRjguXlMTaJVNXHyJqV~mRqYSUJflYKNrCwSniIe3-jwGiGzlAIzHghFSrPeg7auwuIjpFabbPYdDy738MiuATU6A1Bez-q75UgsIH2mQirfEKnu8w4aBg9SkBBrG~eSn9Tq43OlunqhcY0zOKYwC~WSI~CgXApVooqXRAnslLrX-oRhzXdbzDI-ImVgD9CaWCAFZiGj070fFlGxEmVXyOExRTuHTBRyCFGCLHgGyw1KNuZyBS~OaibMbhrUqMseN9nYAp4tMgQSLLtAKLX0xzpe2KjQAuTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+    }
+  ]
+}

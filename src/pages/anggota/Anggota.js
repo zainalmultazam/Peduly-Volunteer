@@ -1,23 +1,71 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import Navbar from '../../components/Navbar';
-
-import data from '../../json/home.json';
+import Nav from '../../components/Nav';
+import {useTransition, animated} from 'react-spring';
+import axios from 'axios';
+import {API_URL, IMAGE_API_URL} from '../../config/API';
 
 function Anggota() {
-  const anggota = data.anggota;
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState(false);
+  const [searchLoacation, setSearchLocation] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [locations, setLocations] = useState([]);
+
+  const transitionSearch = useTransition(search, {
+    from: {x: 0, y: -5, opacity: 0},
+    enter: {x: 0, y: 0, opacity: 1},
+    leave: {x: 0, y: -100, opacity: 0, display: 'none'},
+  });
+
+  const transitionSearchLocation = useTransition(searchLoacation, {
+    from: {x: 0, y: -5, opacity: 0},
+    enter: {x: 0, y: 0, opacity: 1},
+    leave: {x: 0, y: -100, opacity: 0, display: 'none'},
+  });
+
+  const getAnggota = async () => {
+    const response = await axios.get(API_URL);
+    setData(response.data.data);
+    setTotal(response.data.total);
+  };
+
+  useEffect(() => {
+    getAnggota();
+    getLocatonArray();
+  }, []);
+
+  const getLocatonArray = () => {
+    let locs = [];
+
+    data.forEach((e) => {
+      locs = [...locs, e.location];
+    });
+
+    setLocations([...new Set(locs)]);
+  };
+
+  const anggota = data;
 
   return (
     <div style={{maxWidth: '414px'}} className='mx-auto'>
-      <Navbar />
+      <Nav title='Volunteer' back='/' />
       <div className='mx-[30px]'>
-        <div className='flex justify-between items-center mt-[93px]'>
+        <div className='flex justify-between items-center mt-[20px] transition-all duration-75'>
           <div className='flex'>
-            <h1 className='mr-[8px] text-[#E7513B] text-lg font-medium'>543</h1>
+            <h1 className='mr-[8px] text-[#E7513B] text-lg font-medium'>
+              {total}
+            </h1>
             <h1 className='text-lg font-medium'>Volunter</h1>
           </div>
           <div className='flex'>
-            <span>
+            <span
+              onClick={() => {
+                setSearch(!search);
+                setSearchLocation(false);
+              }}
+              className='cursor-pointer'
+            >
               <svg
                 width='48'
                 height='48'
@@ -42,7 +90,13 @@ function Anggota() {
                 />
               </svg>
             </span>
-            <span className='ml-[12px]'>
+            <span
+              className='ml-[12px] cursor-pointer'
+              onClick={() => {
+                setSearchLocation(!searchLoacation);
+                setSearch(false);
+              }}
+            >
               <svg
                 width='48'
                 height='48'
@@ -110,43 +164,59 @@ function Anggota() {
             </span>
           </div>
         </div>
+        {transitionSearch(
+          (style, item) =>
+            item && (
+              <animated.form
+                style={style}
+                className='w-full border-2 my-5 h-[60px] rounded-full flex items-center'
+              >
+                <input
+                  type='text'
+                  className=' w-full outline-none px-5 bg-transparent text-[16px] leading-[22px] font-normal text-[#212121]'
+                  placeholder='search'
+                />
+                <button hidden type='submit' />
+              </animated.form>
+            ),
+        )}
+        {transitionSearchLocation(
+          (style, item) =>
+            item && (
+              <animated.form
+                style={style}
+                className='w-full border-2 my-5 h-[60px] rounded-full flex items-center'
+              >
+                <select
+                  name='kota'
+                  className='w-full bg-transparent outline-none mx-5 text-[16px] leading-[22px] font-normal text-[#212121]'
+                  placeholder='Pilih Lokasi'
+                >
+                  <option value='' selected disabled hidden>
+                    Pilih Kota
+                  </option>
+                  {locations.map((e) => (
+                    <option key={e} value={e}>
+                      {e}
+                    </option>
+                  ))}
+                </select>
+              </animated.form>
+            ),
+        )}
         {anggota.map((e) => (
           <>
-            <Link to='/volunter'>
+            <Link to={`/anggota/detail/${e.id}`}>
               <div className='flex w-ful my-[20px] items-center mt-[30px]'>
                 <div>
-                  <svg
-                    width='48'
-                    height='48'
-                    viewBox='0 0 48 48'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                    xmlnsXlink='http://www.w3.org/1999/xlink'
-                  >
-                    <circle cx='24' cy='24' r='24' fill='url(#pattern0)' />
-                    <defs>
-                      <pattern
-                        id='pattern0'
-                        patternContentUnits='objectBoundingBox'
-                        width='1'
-                        height='1'
-                      >
-                        <use
-                          xlinkHref='#image0_153_47'
-                          transform='scale(0.000976562)'
-                        />
-                      </pattern>
-                      <image
-                        id='image0_153_47'
-                        width='1024'
-                        height='1024'
-                        xlinkHref={e.img}
-                      />
-                    </defs>
-                  </svg>
+                  <img
+                    src={`${IMAGE_API_URL}/${e.image}`}
+                    className='rounded-full w-[48px] h-[48px]'
+                    alt=''
+                  />
                 </div>
                 <div className='ml-[12px]'>
-                  <h3 className='text-sm font-semibold'>{e.nama}</h3>
+                  <h3 className='text-sm font-semibold'>{e.name}</h3>
                   <div className='flex items-center text-xs text-[#717171] mt-[4px]'>
                     <svg
                       width='14'
@@ -164,7 +234,7 @@ function Anggota() {
                         stroke='#717171'
                       />
                     </svg>
-                    <p className='ml-[6px]'>{e.kota}</p>
+                    <p className='ml-[6px]'>{e.location}</p>
                   </div>
                 </div>
               </div>

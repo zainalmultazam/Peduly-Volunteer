@@ -1,10 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import data from '../json/home.json';
+import {useNavigate} from 'react-router-dom';
 
 function Home() {
   const kategori = data.kategori;
   const pesan = data.katamereka;
+
+  const navigate = useNavigate();
 
   return (
     <div style={{maxWidth: '414px'}} className='mx-auto'>
@@ -62,7 +65,7 @@ function Home() {
               type='button'
               className='h-[41px] px-[35px] ml-2 py-[5px] shadow-md text-[#e7513b] mr-[10px] rounded-[15px]  text-[14px] bg-white inline-block '
             >
-              <div className='flex flex-row content-center'>
+              <div className='flex flex-row content-center' key={value.id}>
                 <img
                   style={{
                     marginRight: '10px',
@@ -82,7 +85,7 @@ function Home() {
           <h1 className=' text-lg font-medium mb-[16px]'>Kata mereka</h1>
           <div className='overflow-x-scroll flex flex-row'>
             {pesan.map((e, i, r) => (
-              <div className='inline-block py-1 mx-[8px]'>
+              <div className='inline-block py-1 mx-[8px]' key={e.id}>
                 <div
                   className={
                     'flex items-center flex-col  w-[348px] h-[214px] shadow-md rounded-[15px] ' +
@@ -90,27 +93,19 @@ function Home() {
                   }
                 >
                   <div className='mt-[23px]'>
-                    <svg
-                      width='48'
-                      height='48'
-                      viewBox='0 0 48 48'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <circle cx='24' cy='24' r='24' fill='#D9D9D9' />
-                    </svg>
+                    <img
+                      src={e.img}
+                      alt=''
+                      className='w-[48px] h-[48px] rounded-full object-cover'
+                    />
                   </div>
-                  <div className='w-[80px] h-[35px] mt-[8px]'>
-                    <h3 className='text-xs font-semibold'>Brook Lopes</h3>
+                  <div className='w-[122px] h-[35px] mt-[8px]'>
+                    <h3 className='text-xs font-semibold'>{e.nama}</h3>
                     <h4 className='text-[10px] leading-4 font-light'>
-                      Volunteer Peduly
+                      {e.job}
                     </h4>
                   </div>
-                  <p className='text-sm font-normal max-w-[283px]'>
-                    “Saya sangat puas dengan semua program yang saya kerjakan di
-                    peduly. saya bangga memiliki kesempatan menjadi volunteer
-                    disini.”
-                  </p>
+                  <p className='text-sm font-normal max-w-[283px]'>{e.pesan}</p>
                 </div>
               </div>
             ))}
@@ -125,10 +120,16 @@ function Home() {
         </p>
       </div>
       <div className='mt-[16px] mb-[32px] mx-[30px]'>
-        <button className='bg-[#E7513B] text-white w-full font-bold rounded-full text-[18px]   h-[60px]'>
+        <button
+          className='bg-[#E7513B] text-white w-full font-bold rounded-full text-[18px]   h-[60px]'
+          onClick={() => navigate('/gabung')}
+        >
           Gabung Sekarang
         </button>
-        <button className='bg-white text-[#E7513B] border-[1px] border-[#E7513B] w-full font-bold rounded-full text-[18px] mt-[16px]  h-[60px]'>
+        <button
+          className='bg-white text-[#E7513B] border-[1px] border-[#E7513B] w-full font-bold rounded-full text-[18px] mt-[16px]  h-[60px]'
+          onClick={() => navigate('/anggota')}
+        >
           Lihat Anggota
         </button>
       </div>

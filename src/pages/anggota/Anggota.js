@@ -30,11 +30,6 @@ function Anggota() {
     setTotal(response.data.total);
   };
 
-  useEffect(() => {
-    getAnggota();
-    getLocatonArray();
-  }, []);
-
   const getLocatonArray = () => {
     let locs = [];
 
@@ -44,6 +39,14 @@ function Anggota() {
 
     setLocations([...new Set(locs)]);
   };
+
+  useEffect(() => {
+    getAnggota();
+  }, []);
+
+  useEffect(() => {
+    getLocatonArray();
+  }, [data]);
 
   const anggota = data;
 
@@ -195,7 +198,7 @@ function Anggota() {
                   <option value='' selected disabled hidden>
                     Pilih Kota
                   </option>
-                  {locations.map((e) => (
+                  {locations?.map((e) => (
                     <option key={e} value={e}>
                       {e}
                     </option>
@@ -205,7 +208,7 @@ function Anggota() {
             ),
         )}
         {anggota.map((e) => (
-          <>
+          <div key={e.id}>
             <Link to={`/anggota/detail/${e.id}`}>
               <div className='flex w-ful my-[20px] items-center mt-[30px]'>
                 <div>
@@ -240,7 +243,7 @@ function Anggota() {
               </div>
             </Link>
             <hr />
-          </>
+          </div>
         ))}
       </div>
     </div>

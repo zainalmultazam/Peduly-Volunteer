@@ -20,17 +20,17 @@ function Nav({title, back}) {
               d='M9.57 5.92999L3.5 12L9.57 18.07'
               stroke='#292D32'
               strokeWidth='1.5'
-              stroke-miterlimit='10'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeMiterlimit='10'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
             <path
               d='M20.5 12H3.66998'
               stroke='#292D32'
               strokeWidth='1.5'
-              stroke-miterlimit='10'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeMiterlimit='10'
+              strokeLinecap='round'
+              strokeLinejoin='round'
             />
           </svg>
         </Link>

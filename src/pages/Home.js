@@ -20,11 +20,6 @@ function Home() {
           height={414}
           className='object-cover'
         />
-        <div className='absolute top-0 flex justify-center text-center w-full  text-white  mt-[52px] '>
-          <h1 className='text-xl  font-semibold max-w-[254px] '>
-            Menjadi bagian dari komunitas orang baik
-          </h1>
-        </div>
         <div className='relative shadow-sm bg-white rounded-[15px] w-full max-w-[354px] flex text-center mx-auto justify-evenly h-[100px] items-center -mt-[50px] z-auto'>
           <div>
             <h3 className='text-xl font-semibold text-[#E7513B]'>1340+</h3>

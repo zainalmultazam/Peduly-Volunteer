@@ -107,7 +107,7 @@ function NavbarOpen() {
             <li className='w-[256px]'>
               <div
                 className='flex py-[20px] ml-[7px]'
-                onClick={() => window.Location('/')}
+                onClick={() => window.Location('https://peduly.com/tentang')}
               >
                 <svg
                   width='24'
@@ -146,7 +146,9 @@ function NavbarOpen() {
             <li className='w-[256px]'>
               <div
                 className='flex py-[20px] ml-[7px]'
-                onClick={() => window.Location('/')}
+                onClick={() =>
+                  window.Location('https://peduly.com/donasi/sekali')
+                }
               >
                 <svg
                   width='22'

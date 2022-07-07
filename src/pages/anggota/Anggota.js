@@ -11,6 +11,10 @@ function Anggota() {
   const [searchLoacation, setSearchLocation] = useState(false);
   const [total, setTotal] = useState(0);
   const [locations, setLocations] = useState([]);
+  const [query, setQuery] = useState('');
+  const [kategori, setKategori] = useState('');
+  const [loading, setIsloading] = useState(false);
+  const [active, setActive] = useState('none');
 
   const transitionSearch = useTransition(search, {
     from: {x: 0, y: -5, opacity: 0},
@@ -26,6 +30,7 @@ function Anggota() {
 
   const getAnggota = async () => {
     const response = await axios.get(API_URL);
+    setIsloading(true);
     setData(response.data.data);
     setTotal(response.data.total);
   };
@@ -48,7 +53,31 @@ function Anggota() {
     getLocatonArray();
   }, [data]);
 
-  const anggota = data;
+  const anggota = data.filter((e) => {
+    if (active === 'none') {
+      return e;
+    } else if (active === 'search') {
+      if (query === '') {
+        return e;
+      } else if (
+        e.name.replace(/\s/g, '').toLowerCase().includes(query.toLowerCase())
+      ) {
+        return e;
+      }
+    } else if (active === 'kategori') {
+      if (kategori === '' || kategori === 'semua') {
+        return e;
+      } else if (
+        e.location
+          .replace(/\s/g, '')
+          .toLowerCase()
+          .includes(kategori.toLowerCase())
+      ) {
+        return e;
+      }
+    }
+    return '';
+  });
 
   return (
     <div style={{maxWidth: '414px'}} className='mx-auto'>
@@ -66,6 +95,7 @@ function Anggota() {
               onClick={() => {
                 setSearch(!search);
                 setSearchLocation(false);
+                setActive('search');
               }}
               className='cursor-pointer'
             >
@@ -98,6 +128,7 @@ function Anggota() {
               onClick={() => {
                 setSearchLocation(!searchLoacation);
                 setSearch(false);
+                setActive('kategori');
               }}
             >
               <svg
@@ -176,6 +207,7 @@ function Anggota() {
               >
                 <input
                   type='text'
+                  onChange={(e) => setQuery(e.target.value)}
                   className=' w-full outline-none px-5 bg-transparent text-[16px] leading-[22px] font-normal text-[#212121]'
                   placeholder='search'
                 />
@@ -192,12 +224,15 @@ function Anggota() {
               >
                 <select
                   name='kota'
-                  className='w-full bg-transparent outline-none mx-5 text-[16px] leading-[22px] font-normal text-[#212121]'
+                  className='w-full bg-transparent outline-none mx-5 text-[16px] leading-[22px] font-normal text-[#212121] py-2 cursor-pointer'
                   placeholder='Pilih Lokasi'
+                  onChange={(e) => setKategori(e.target.value)}
+                  defaultValue={'DEFAULT'}
                 >
-                  <option value='' selected disabled hidden>
+                  <option value={'DEFAULT'} hidden>
                     Pilih Kota
                   </option>
+                  <option value='semua'>semua kota</option>
                   {locations?.map((e) => (
                     <option key={e} value={e}>
                       {e}
@@ -207,44 +242,52 @@ function Anggota() {
               </animated.form>
             ),
         )}
-        {anggota.map((e) => (
-          <div key={e.id}>
-            <Link to={`/anggota/detail/${e.id}`}>
-              <div className='flex w-ful my-[20px] items-center mt-[30px]'>
-                <div>
-                  <img
-                    src={`${IMAGE_API_URL}/${e.image}`}
-                    className='rounded-full w-[48px] h-[48px]'
-                    alt=''
-                  />
-                </div>
-                <div className='ml-[12px]'>
-                  <h3 className='text-sm font-semibold'>{e.name}</h3>
-                  <div className='flex items-center text-xs text-[#717171] mt-[4px]'>
-                    <svg
-                      width='14'
-                      height='14'
-                      viewBox='0 0 14 14'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M6.99999 7.83421C8.00515 7.83421 8.81999 7.01937 8.81999 6.01421C8.81999 5.00906 8.00515 4.19421 6.99999 4.19421C5.99483 4.19421 5.17999 5.00906 5.17999 6.01421C5.17999 7.01937 5.99483 7.83421 6.99999 7.83421Z'
-                        stroke='#717171'
+        {loading ? (
+          anggota.length > 0 ? (
+            anggota.map((e) => (
+              <div key={e.id}>
+                <Link to={`/anggota/detail/${e.id}`}>
+                  <div className='flex w-ful my-[20px] items-center mt-[30px]'>
+                    <div>
+                      <img
+                        src={`${IMAGE_API_URL}/${e.image}`}
+                        className='rounded-full w-[48px] h-[48px]'
+                        alt=''
                       />
-                      <path
-                        d='M2.11164 4.95246C3.26081 -0.099206 10.745 -0.0933725 11.8883 4.95829C12.5591 7.92163 10.7158 10.43 9.09997 11.9816C7.92747 13.1133 6.07247 13.1133 4.89414 11.9816C3.28414 10.43 1.44081 7.91579 2.11164 4.95246Z'
-                        stroke='#717171'
-                      />
-                    </svg>
-                    <p className='ml-[6px]'>{e.location}</p>
+                    </div>
+                    <div className='ml-[12px]'>
+                      <h3 className='text-sm font-semibold'>{e.name}</h3>
+                      <div className='flex items-center text-xs text-[#717171] mt-[4px]'>
+                        <svg
+                          width='14'
+                          height='14'
+                          viewBox='0 0 14 14'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path
+                            d='M6.99999 7.83421C8.00515 7.83421 8.81999 7.01937 8.81999 6.01421C8.81999 5.00906 8.00515 4.19421 6.99999 4.19421C5.99483 4.19421 5.17999 5.00906 5.17999 6.01421C5.17999 7.01937 5.99483 7.83421 6.99999 7.83421Z'
+                            stroke='#717171'
+                          />
+                          <path
+                            d='M2.11164 4.95246C3.26081 -0.099206 10.745 -0.0933725 11.8883 4.95829C12.5591 7.92163 10.7158 10.43 9.09997 11.9816C7.92747 13.1133 6.07247 13.1133 4.89414 11.9816C3.28414 10.43 1.44081 7.91579 2.11164 4.95246Z'
+                            stroke='#717171'
+                          />
+                        </svg>
+                        <p className='ml-[6px]'>{e.location}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Link>
+                <hr />
               </div>
-            </Link>
-            <hr />
-          </div>
-        ))}
+            ))
+          ) : (
+            <p className='w-full text-center py-6 text-sm'>Tidak Ditemukan</p>
+          )
+        ) : (
+          <p className='w-full text-center py-6 text-sm'>sabar</p>
+        )}
       </div>
     </div>
   );

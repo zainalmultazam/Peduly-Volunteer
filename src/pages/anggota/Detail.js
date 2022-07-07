@@ -138,9 +138,19 @@ function Detail() {
           <div className='ml-[17px]'>
             <h1 className='text-lg font-medium'>Sertifikat</h1>
             <p className='text-sm font-normal text-[#E7513B]'>
-              <a href={data?.cetificate} target='_blank' rel='noreferrer'>
-                {data?.cetificate}
-              </a>
+              {data?.cetificate ? (
+                <a
+                  href={`${data?.id}/${data?.cetificate}`}
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  {data.cetificate}
+                </a>
+              ) : (
+                <span className='text-[#171717]'>
+                  Belum bisa mendapatkan sertifikat
+                </span>
+              )}
             </p>
           </div>
         </div>

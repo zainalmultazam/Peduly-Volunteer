@@ -10,10 +10,9 @@ function Gabung() {
       <Nav title='Pilih Lokasi' back='/' />
       <div className=' mx-[20px]'>
         {gabung.map((e) => (
-          <>
+          <div key={e.id}>
             <a
               href={e.form}
-              key={e.id}
               target='_blank'
               className='flex w-full justify-between py-[28px]'
               rel='noreferrer'
@@ -39,7 +38,7 @@ function Gabung() {
               </div>
             </a>
             <hr />
-          </>
+          </div>
         ))}
       </div>
     </div>

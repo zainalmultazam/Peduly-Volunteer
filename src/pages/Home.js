@@ -10,26 +10,26 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div style={{maxWidth: '414px'}} className='mx-auto'>
+    <div style={{maxWidth: '414px'}} className='mx-auto overflow-hidden'>
       <Navbar />
       <div className='relative mt-[72px]'>
         <img
-          src='https://s3-alpha-sig.figma.com/img/ce4b/c0a3/8b29531d1bc68e83c2f9000187c323e6?Expires=1657497600&Signature=cGBPMeGx3bnYuICK659XOVgMuF12E-dnJCmiEa5I68JaCVA0V42gL6MxSUG6~EF-XJuPJRwymTIfeEbuLOU4cukFYGGMu4LKdslSW3fW3nnr9wLkPDrO3leVrqFNuiTLl7uZ4kXqHDnIzMm2JGc3p-UXjqZnjjQl-lsJr1wJDhwuPKSYybD6x~mXmODC6cQpfQ9tPvx3n10J4JUit1bwERSX002Q2-x~BL70Ca4EI6CupgZ2dsGIaoHMGRLgdgJ4vdCfkugVARDkzkW6ca8QUHHqcEkm~rPoutpHkQQxid7yRHMh-CT87FeUTg6C5xKuXIPqa62Tka-UkH43bTHJZw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
+          src='https://i.postimg.cc/htCxwVLx/8b29531d1bc68e83c2f9000187c323e6.jpg'
           alt=''
           width={414}
           height={414}
-          className='object-cover'
+          className='object-fill scale-125'
         />
         <div className='relative shadow-sm bg-white rounded-[15px] w-full max-w-[354px] flex text-center mx-auto justify-evenly h-[100px] items-center -mt-[50px] z-auto'>
-          <div>
+          <div className='mt-1'>
             <h3 className='text-xl font-semibold text-[#E7513B]'>1340+</h3>
             <h6 className='text-xs font-light text-[#000000]'>Volunteer</h6>
           </div>
-          <div>
+          <div className='mt-1'>
             <h3 className='text-xl font-semibold text-[#E7513B]'>670+</h3>
             <h6 className='text-xs font-light text-[#000000]'>Program</h6>
           </div>
-          <div>
+          <div className='mt-1'>
             <h3 className='text-xl font-semibold text-[#E7513B]'>320+</h3>
             <h6 className='text-xs font-light text-[#000000]'>Dukungan</h6>
           </div>

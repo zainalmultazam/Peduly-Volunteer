@@ -51,7 +51,7 @@ function Anggota() {
 
   useEffect(() => {
     getLocatonArray();
-  }, [data]);
+  }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const anggota = data.filter((e) => {
     if (active === 'none') {
@@ -286,7 +286,7 @@ function Anggota() {
             <p className='w-full text-center py-6 text-sm'>Tidak Ditemukan</p>
           )
         ) : (
-          <p className='w-full text-center py-6 text-sm'>sabar</p>
+          <p className='w-full text-center py-6 text-sm'>loading..</p>
         )}
       </div>
     </div>

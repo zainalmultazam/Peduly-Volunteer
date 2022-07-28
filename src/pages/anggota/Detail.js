@@ -16,7 +16,7 @@ function Detail() {
 
   useEffect(() => {
     getDetail();
-  }, []);
+  }, [data]); // eslint-disable-line
 
   return (
     <div style={{maxWidth: '414px'}} className='mx-auto'>
@@ -140,7 +140,7 @@ function Detail() {
             <p className='text-sm font-normal text-[#E7513B]'>
               {data?.cetificate ? (
                 <a
-                  href={`${data?.id}/${data?.cetificate}`}
+                  href={`${data?.cetificate}`}
                   target='_blank'
                   rel='noreferrer'
                 >

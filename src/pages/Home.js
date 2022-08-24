@@ -14,13 +14,13 @@ function Home() {
       <Navbar />
       <div className='relative mt-[72px]'>
         <img
-          src='https://i.postimg.cc/htCxwVLx/8b29531d1bc68e83c2f9000187c323e6.jpg'
+          src='/image/home.png'
           alt=''
           width={414}
           height={414}
           className='object-fill scale-125'
         />
-        <div className='relative shadow-sm bg-white rounded-[15px] w-full max-w-[354px] flex text-center mx-auto justify-evenly h-[100px] items-center -mt-[50px] z-auto'>
+        <div className='relative shadow-sm bg-white rounded-[15px] w-full max-w-[354px] flex text-center mx-auto justify-evenly h-[100px] items-center  z-auto'>
           <div className='mt-1'>
             <h3 className='text-xl font-semibold text-[#E7513B]'>1340+</h3>
             <h6 className='text-xs font-light text-[#000000]'>Volunteer</h6>

@@ -81,6 +81,11 @@
     },
     {
       "id": 7,
+      "kota": "Bogor",
+      "form": "https://forms.gle/9CgutvbKsMjUtZrn8"
+    },
+    {
+      "id": 8,
       "kota": "Kota Lain",
       "form": "https://forms.gle/NyjU8BkqNSf3gRPE8"
     }
